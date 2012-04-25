@@ -1,32 +1,32 @@
 { Order } = require 'order'
 
+mark = (el) ->
+    return (done) ->
+        el._list_ready = done
+        return el
+
 
 class List extends Order
+    constructor: ->
+        super ({idx, before, after}) ->
+            this[idx]._list = {idx, before, after, list:this}
 
-
-
-List.jqueryify = (root) ->
-    return ({idx, before, after}) ->
-#         console.error "list", @length, "before:#{before} idx:#{idx} after:#{after}", root?._jquery
-        el = this[idx]._jquery
-        if before isnt -1
-            this[before]._jquery.after el
-        else if after isnt -1
-            this[after]._jquery.before el
-        else
-            root._jquery.append el
-
-List.domify = (root) ->
-    return ({idx, before, after}) ->
-        el = this[idx]._dom
-        if after isnt -1
-            el.parent.insertBefore el, this[after]._dom
-        else
-            root._dom.appendChild el
+    push:    (   el) -> super    mark el
+    unshift: (   el) -> super    mark el
+    insert:  (i, el) -> super i, mark el
 
 # exports
 
 List.List = List
 module.exports = List
+
+# browser support
+
+( ->
+    if @dynamictemplate?
+        @dynamictemplate.List = List
+    else
+        @dynamictemplate = {List}
+).call window if process.title is 'browser'
 
 

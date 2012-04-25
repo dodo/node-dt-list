@@ -2,6 +2,7 @@
 *.swp
 lib/*
 test/*
+adapter/*
 *.browser.*
 .lock-wscript
 node_modules/

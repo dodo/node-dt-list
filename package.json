@@ -1,6 +1,6 @@
 { "name": "dt-list"
 , "description": "Δt list controller - async & dynamic templating engine"
-, "version": "0.0.1"
+, "version": "0.0.2"
 , "homepage": "https://github.com/dodo/node-dt-list"
 , "author": "dodo (https://github.com/dodo)"
 , "repository": {"type": "git", "url": "git://github.com/dodo/node-dt-list.git"}

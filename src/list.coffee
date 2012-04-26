@@ -1,6 +1,7 @@
 { Order } = require 'order'
 
 mark = (el) ->
+    el = el.xml ? el # get the builder if it is a template
     return (done) ->
         el._list_ready = done
         return el

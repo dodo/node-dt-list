@@ -4,8 +4,10 @@ module.exports = (adapter) ->
     fn_add = adapter.fn.add
     adapter.fn.add = (parent, el) ->
         el._list_ready?()
+        el._list_ready = null
         return fn_add(parent, el) unless el._list?
         {idx, before, after, list} = el._list
+        el._list = null
         $el = el._jquery
         $par = parent._jquery
         $after = list[after]?._jquery
@@ -55,6 +57,7 @@ module.exports = (adapter) ->
             newtag._list ?= oldtag._list
             oldtag._list = null
             newtag._list.list[newtag._list.idx] = newtag
+        if oldtag._list_ready?
             newtag._list_ready ?= oldtag._list_ready
             oldtag._list_ready = null
         return res

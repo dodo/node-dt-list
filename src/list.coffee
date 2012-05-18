@@ -15,6 +15,8 @@ class List extends Order
     push:    (   el) -> super    mark el
     unshift: (   el) -> super    mark el
     insert:  (i, el) -> super i, mark el
+    splice: (i, d, els...) ->
+        super i, d, (mark el for el in els)...
 
 # exports
 

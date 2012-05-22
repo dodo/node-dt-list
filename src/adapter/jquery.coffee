@@ -23,14 +23,14 @@ module.exports = (adapter) ->
             else
                 $par = $par.add($el)
 
-            if parent._jquery_wrapped # FIXME
+            if parent._browser.wrapped # FIXME
                 $par.first().replaceWith($el)
                 if parent.parent is parent.parent?.builder # FIXME recursive?
                     $parpar = parent.parent?._jquery
-                    parent._jquery_wrapped = no
+                    parent._browser.wrapped = no
                     $par = $par.not(':first') # rm placeholder span
                     $parpar?.splice($parpar.index($par), i+1, $par...)
-            else if $par.parent().length > 0
+            else if parent._browser.insert is true
                 # list handling:
                 if before isnt -1
                     $el.insertAfter($before)

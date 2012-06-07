@@ -30,7 +30,7 @@ module.exports = (adapter) ->
                     parent._browser.wrapped = no
                     $par = $par.not(':first') # rm placeholder span
                     $parpar?.splice($parpar.index($par), i+1, $par...)
-            else if parent._browser.insert is true
+            else if $par.parent().length > 0
                 # list handling:
                 if before isnt -1
                     $el.insertAfter($before)

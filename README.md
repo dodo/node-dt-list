@@ -38,7 +38,7 @@ function myTemplate(view) {
     });
 }
 ```
-[Example](http://dodo.github.com/example/list.html) in [detail](https://github.com/dodo/node-dynamictemplate/blob/master/example/list.coffee).
+[Example](http://dodo.github.com/node-dynamictemplate/example/list.html) in [detail](https://github.com/dodo/node-dynamictemplate/blob/master/example/list.coffee).
 
 
 ## api

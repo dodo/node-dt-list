@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/dodo/node-dt-list.png)](http://travis-ci.org/dodo/node-dt-list)
 # [Δt dynamictemplate List Controller](http://dodo.github.com/node-dt-list/)
 
 This provides List handling support for [asyncxml](http://dodo.github.com/node-asyncxml/) and [Δt](http://dodo.github.com/node-dynamictemplate/).

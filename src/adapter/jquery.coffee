@@ -33,17 +33,17 @@ module.exports = (adapter) ->
             else if $par.parent().length > 0
                 # list handling:
                 if before isnt -1
-                    $el.insertAfter($before)
+                    $el.insertAfter($before.first())
                 else if after isnt -1
-                    $el.insertBefore($after)
+                    $el.insertBefore($after.first())
                 else
                     $el.insertAfter($par[i])
         else
             # list handling:
             if before isnt -1
-                $el.insertAfter($before)
+                $el.insertAfter($before.first())
             else if after isnt -1
-                $el.insertBefore($after)
+                $el.insertBefore($after.first())
             else
                 $par.append($el)
         # $.add isnt inplace

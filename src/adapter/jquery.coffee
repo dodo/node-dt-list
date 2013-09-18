@@ -33,7 +33,7 @@ module.exports = (adapter) ->
             else if $par.parent().length > 0
                 # list handling:
                 if before isnt -1
-                    $el.insertAfter($before.first())
+                    $el.insertAfter($before.last())
                 else if after isnt -1
                     $el.insertBefore($after.first())
                 else
@@ -41,7 +41,7 @@ module.exports = (adapter) ->
         else
             # list handling:
             if before isnt -1
-                $el.insertAfter($before.first())
+                $el.insertAfter($before.last())
             else if after isnt -1
                 $el.insertBefore($after.first())
             else

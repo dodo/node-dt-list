@@ -1,5 +1,7 @@
 
 module.exports = (adapter) ->
+    adapter.plugins ?= {}
+    adapter.plugins['list'] = true
 
     fn_add = adapter.fn.add
     adapter.fn.add = (parent, el) ->

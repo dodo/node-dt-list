@@ -1,6 +1,11 @@
 { Order } = require 'order'
 
+warned = no
+
 mark = (el) ->
+    if not warned and el.builder? and not el.builder.adapters?.browser?.plugins?.list?
+        console.warn "dt-list adapter plugin is missing!"
+        warned = yes
     el = el.xml ? el # get the builder if it is a template
     return (done) ->
         el._list_ready = done

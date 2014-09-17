@@ -11,6 +11,8 @@
     "prepublish": "cake build"}
 , "dependencies": {
     "order": ">= 0.1.0"}
+, "peerDependencies": {
+    "dynamictemplate": ">= 0.7.1"}
 , "devDependencies": {
     "browserify": "1.6.1",
     "scopify": ">= 0.2.1",

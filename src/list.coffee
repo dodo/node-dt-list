@@ -1,10 +1,14 @@
 { Order } = require 'order'
 
 mark = (el) ->
-    if List.warn and el.builder? and not el.builder.adapters?.browser?.plugins?.list?
-        console.warn "dt-list adapter plugin is missing!"
-        List.warn = no
     el = el.xml ? el # get the builder if it is a template
+    if List.warn
+        el.once 'added', ->
+            root = el.root()
+            if List.warn and root.builder?
+                unless root.builder.adapters?.browser?.plugins?.list?
+                    console.warn "dt-list adapter plugin is missing!"
+                List.warn = no
     return (done) ->
         el._list_ready = done
         return el
